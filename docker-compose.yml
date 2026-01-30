@@ -1,0 +1,18 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dosaurus_hoster_bot
+    restart: always
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      - PORT=8000
+    healthcheck:
+      test: [ "CMD", "python", "-c", "import urllib.request; import sys; response = urllib.request.urlopen('http://localhost:8000/docs'); sys.exit(0 if response.getcode() == 200 else 1)" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3

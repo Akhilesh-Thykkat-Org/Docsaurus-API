@@ -1,0 +1,27 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.env
+.env.local
+.env.*.local
+.git/
+.gitignore
+.dockerignore
+Dockerfile
+README.md
+# uv.lock
+# pyproject.toml
+run.sh
+.vscode/
+.idea/
+target/
+build/
+dist/
+*.egg-info/
