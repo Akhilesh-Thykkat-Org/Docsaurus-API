@@ -81,10 +81,43 @@ Opens a Pull Request from the specified branch to `main`.
    GITHUB_REPO=owner/repo_name
    ```
 
-### Running the Application
+### Quick Start (Recommended)
+
+For convenience, you can use the `run.sh` script. It automatically handles environment setup (copying `.env`), dependency installation (using `uv` or `pip`), and starting the server.
+
+```bash
+chmod +x run.sh
+./run.sh
+```
+
+### Manual Setup
+
 
 Run the server using Uvicorn:
 
 ```bash
 uvicorn app.main:app --reload
 ```
+
+### Running with Docker
+
+You can also run the application using Docker. This ensures a consistent environment and easy deployment.
+
+**Using Docker Compose (Recommended):**
+
+```bash
+docker compose up -d --build
+```
+
+**Using Docker manually:**
+
+1. Build the image:
+   ```bash
+   docker build -t dosaurus-hoster-bot .
+   ```
+
+2. Run the container:
+   ```bash
+   # Make sure your .env file is present
+   docker run -d -p 8000:8000 --env-file .env dosaurus-hoster-bot
+   ```
